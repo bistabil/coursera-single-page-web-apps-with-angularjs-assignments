@@ -1,0 +1,16 @@
+.message.green {
+    color: green;
+}
+
+.message.red {
+    color: red;
+}
+
+#lunch-menu.green {
+    border: 2px solid green;
+
+}
+
+#lunch-menu.red {
+    border: 2px solid red;
+}
