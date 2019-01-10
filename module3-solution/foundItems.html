@@ -1,0 +1,26 @@
+<table class="table" ng-if="found.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Short Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in found">
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <td><button class="btn btn-md btn-danger" ng-click="onRemove({ index: $index })">Don't want this one!</button></td>
+        </tr>
+    </tbody>
+</table>
+<!-- Original solution with side effect
+<div ng-if="found.length === 0" class="alert alert-warning">
+    Nothing found
+</div>
+-->
+<div ng-if="noResults" class="alert alert-warning">
+    Nothing found
+</div>
