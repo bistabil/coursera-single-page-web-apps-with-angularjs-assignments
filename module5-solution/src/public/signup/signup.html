@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Sign Up to our Newsletter</h1>
+    <div class="col-xs-4">
+        <form name="signupForm" novalidate>
+            <hr>
+            <div class="form-group">
+                <label>First Name: *</label>
+                <input ng-model="$ctrl.user.firstName" type="text" name="firstName" placeholder="John" class="input-lg form-control" required />
+                <span class="error" ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">First name is required</span>
+            </div>
+            <div class="form-group">
+                <label>Last Name: *</label>
+                <input ng-model="$ctrl.user.lastName" type="text" name="lastName" placeholder="Doe" class="input-lg form-control" required />
+                <span class="error" ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">Last name is required</span>
+            </div>
+            <div class="form-group">
+                <label>Email Address: *</label>
+                <input ng-model="$ctrl.user.email" type="email" name="email" placeholder="you@domain" class="input-lg form-control" required />
+                <span class="error" ng-if="signupForm.email.$error.required && signupForm.email.$touched">email is required</span>
+                <span class="error" ng-if="signupForm.email.$error.email && signupForm.email.$touched">Invalid email!</span>
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input ng-model="$ctrl.user.phone" type="text" name="phone" placeholder="ddd/ddd-dddd" class="input-lg form-control" ng-pattern="/^[0-9]{3}/[0-9]{3}-[0-9]{4}$/" />
+                <span class="error" ng-if="signupForm.phone.$error.pattern && signupForm.phone.$touched">Invalid phone number format!</span>
+            </div>
+            <div class="form-group">
+                <label>Favourite Dish Number: *</label>
+                <input ng-model="$ctrl.user.favouriteDishNumber" type="text" name="favouriteDish" class="input-lg form-control" required />
+                <span class="error" ng-if="signupForm.favouriteDish.$error.required && signupForm.favouriteDish.$touched">Favourite dish number is required!</span>
+                <span class="error" ng-if="$ctrl.favouriteDishNotFound">No such menu number exists</span>
+            </div>
+            <hr>
+            <div class="form-group">
+                <input type="submit" class="input-lg" ng-disabled="signupForm.$invalid" ng-click="$ctrl.signup()" />
+            </div>
+        </form>
+        <label ng-if="$ctrl.signed" class="label-success">Your information has been saved</label>
+    </div>
+</div>

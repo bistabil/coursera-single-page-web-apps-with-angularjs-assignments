@@ -1,0 +1,21 @@
+<div class="container">
+    <div ng-if="$ctrl.userInfo">
+        <h1>Hello {{$ctrl.userInfo.firstName}}! Here is Your information:</h1>
+        <hr>
+        <div class="col-xs-4">
+            <h3>First Name: {{$ctrl.userInfo.firstName}}</h3>
+            <h3>Last Name: {{$ctrl.userInfo.lastName}}</h3>
+            <h3>Email: {{$ctrl.userInfo.email}}</h3>
+            <h3 ng-if="$ctrl.userInfo.phone">Phone: {{$ctrl.userInfo.phone}}</h3>
+        </div>
+        <div class="col-xs-8">
+            <h3>Favourite Dish: <strong>{{$ctrl.userInfo.favouriteDish.name}}</strong></h3>
+            <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.userInfo.favouriteDish.short_name}}.jpg" alt="{{$ctrl.userInfo.favouriteDish.name}}">
+            <h4><i>{{$ctrl.userInfo.favouriteDish.description}}</i></h4>
+        </div>
+    </div>
+    <div ng-if="!$ctrl.userInfo">
+        <h1>Not Signed Up Yet</h1>
+        <a ui-sref="public.signup" style="font-size: 3em; color: yellow; text-decoration: none"><span class="glyphicon glyphicon-certificate"></span> Sign Up Now!</a>
+    </div>
+</div>
